@@ -4,16 +4,13 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-
 from keras.layers.merge import concatenate
 import keras.backend as K
 from keras.layers.core import Lambda
 from keras.models import Model
 
-
 def _get_available_devices():
     return [x.name for x in K.get_session().list_devices()]
-
 
 def _normalize_device_name(name):
     name = '/' + ':'.join(name.lower().replace('/', '').split(':')[-2:])
