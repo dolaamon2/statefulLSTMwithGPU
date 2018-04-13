@@ -17,6 +17,9 @@ framework version<br />
     model.add(Dense(1))
     datax = np.random.rand(32, 10, 1)
     datay = np.random.rand(32, 1)
+    
+    # model = multi_gpu_model(model) <= invalid state size in original keras version
+    
     model = multi_gpu_utils.multi_gpu_model(model)
     model.compile(loss='mean_squared_error', optimizer = 'sgd')
     model.fit(datax, datay, epochs=2,  batch_size=32)
